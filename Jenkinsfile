@@ -6,8 +6,11 @@ pipeline {
     stage ('Build') {
       steps {
       sh 'rm -rf ./cypress2'
-      sh '''
-        npm install	
+      sh '''        
+	npm install
+        npm run build
+        sudo npm install -g serve
+        serve -s build&	
 	'''
       }
     }
