@@ -1,5 +1,5 @@
 pipeline {
-  agent any
+  agent Jenkins Agent 1
   stages {
     stage ('Build') {
       steps {
@@ -14,7 +14,7 @@ pipeline {
     }
     stage ('test') {
       agent {
-        label 'Jenkins Agent 1'
+        label 'Jenkins Agent 2'
       }
       steps {
       sh ''' 
