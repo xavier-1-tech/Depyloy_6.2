@@ -8,7 +8,8 @@ pipeline {
       sh 'rm -rf ./cypress2'
       sh '''
         npm install
-	server -s build 
+	npm install serve
+	serve -s build 
 	'''
       }
     }
