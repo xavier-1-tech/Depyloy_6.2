@@ -3,15 +3,18 @@ pipeline {
   stages {
     stage ('Build') {
       steps {
-      sh 'rm -rf ./kura_test_repo/cypress2'
+      sh 'rm -rf ./cypress2'
       sh '''
         npm install
+		npm  run  build
+		sudo  npm  install  -g  serve
+		serve  -s  build
         '''
       }
     }
-    stage ('Second') {
+    stage ('test') {
       agent {
-        label 'React-dev'
+        label 'Jenkins Agent 1'
       }
       steps {
       sh ''' 
